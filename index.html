@@ -1,173 +1,143 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Honey Box | Coming Soon</title>
+  <title>Experience Box — Coming Soon</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="   --gold:#c79b3b;
-    --dark:#1e1e1e;
-    --light:#faf9f7;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f1ea;
+      color: #222;
+      min-height: 100vh;
+    }
 
-body{
-    background:var(--light);
-    color:var(--dark);
-    font-family:'Inter',sans-serif;
-    min-height:100vh;
-}
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      text-align: center;
+    }
 
-.hero{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:40px;
-}
+    .content {
+      max-width: 650px;
+    }
 
-.container{
-    max-width:1100px;
-    display:flex;
-    align-items:center;
-    gap:80px;
-}
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #8b7355;
+      margin-bottom: 25px;
+    }
 
-.product{
-    flex:1;
-}
+    h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(48px, 9vw, 90px);
+      font-weight: normal;
+      line-height: 0.95;
+      margin-bottom: 25px;
+    }
 
-.product img{
-    width:100%;
-    max-width:520px;
-    border-radius:24px;
-    box-shadow:
-    0 30px 60px rgba(0,0,0,0.12);
-}
+    .subtitle {
+      font-family: Georgia, serif;
+      font-size: clamp(20px, 4vw, 30px);
+      color: #555;
+      margin-bottom: 25px;
+    }
 
-.content{
-    flex:1;
-}
+    .description {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #777;
+      max-width: 480px;
+      margin: 0 auto 40px;
+    }
 
-.logo{
-    color:var(--gold);
-    font-size:24px;
-    margin-bottom:25px;
-}
+    .box {
+      display: inline-block;
+      border: 1px solid #222;
+      padding: 16px 32px;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
 
-h1{
-    font-family:'Cormorant Garamond',serif;
-    font-size:82px;
-    font-weight:600;
-    line-height:0.95;
-    margin-bottom:20px;
-}
+    .footer {
+      position: fixed;
+      bottom: 25px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: #999;
+      text-transform: uppercase;
+    }
 
-.subtitle{
-    color:var(--gold);
-    font-size:14px;
-    letter-spacing:5px;
-    text-transform:uppercase;
-    margin-bottom:30px;
-}
+    @media (max-width: 600px) {
+      .hero {
+        padding: 30px 25px;
+      }
 
-p{
-    font-size:18px;
-    color:#666;
-    line-height:1.8;
-    margin-bottom:40px;
-}
+      h1 {
+        font-size: 58px;
+      }
 
-.coming-soon{
-    display:inline-block;
-    padding:15px 35px;
-    border:1px solid var(--gold);
-    border-radius:50px;
-    color:var(--gold);
-    letter-spacing:3px;
-    text-transform:uppercase;
-    font-size:13px;
-}
-
-.features{
-    margin-top:50px;
-    display:flex;
-    gap:30px;
-    flex-wrap:wrap;
-}
-
-.feature{
-    color:#888;
-    font-size:14px;
-}
-
-@media(max-width:900px){
-
-.container{
-    flex-direction:column;
-    text-align:center;
-}
-
-h1{
-    font-size:56px;
-}
-
-.features{
-    justify-content:center;
-}
-}
-</style>
+      .description {
+        font-size: 15px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<section class="hero">
+  <main class="hero">
 
-<div class="container">
+    <div class="content">
 
-<div class="product">
-    <img src="https://images.unsplash.com/photo-1587049352851-8d4e89133924?auto=format&fit=crop&w=1200&q=80"
-         alt="Premium Honey Box">
-</div>
+      <div class="eyebrow">
+        A new kind of souvenir
+      </div>
 
-<div class="content">
+      <h1>
+        Experience<br>
+        Box
+      </h1>
 
-    <div class="title">
-        Premium Bulgarian Honey
-    </div>
+      <div class="subtitle">
+        Take a story home.
+      </div>
 
-    <h1>
-        A Taste Of<br>
-        Pure Nature
-    </h1>
+      <p class="description">
+        Curated local tastes, beautiful discoveries and
+        unforgettable experiences — all in one box.
+      </p>
 
-    <p>
-        Discover a curated collection of premium honey,
-        handcrafted gifts, and natural treasures sourced
-        from Bulgaria's finest beekeepers.
-    </p>
-
-    <div class="coming-soon">
+      <div class="box">
         Coming Soon
+      </div>
+
     </div>
 
-    <div class="features">
-        <div class="feature">✦ Artisan Honey</div>
-        <div class="feature">✦ Luxury Packaging</div>
-        <div class="feature">✦ Made In Bulgaria</div>
-    </div>
+  </main>
 
-</div>
-
-</div>
-
-</section>
+  <div class="footer">
+    Made with curiosity · Bulgaria
+  </div>
 
 </body>
 </html>
+```
