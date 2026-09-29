@@ -3,537 +3,343 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experience Box Bulgaria | Give Memories, Not Things</title>
 
-<title>Sofia After Work</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;display=swap
 
 <style>
-* {
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                 Roboto, Arial, sans-serif;
-    background: #f5f1e9;
-    color: #252525;
+body{
+    font-family:'Poppins',sans-serif;
+    color:#333;
+    line-height:1.6;
 }
 
-.hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 25px;
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
 }
 
-.card {
-    width: 100%;
-    max-width: 620px;
-    background: #fffdf9;
-    border-radius: 28px;
-    padding: 50px 35px;
-    text-align: center;
-    box-shadow: 0 20px 60px rgba(0,0,0,.08);
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,0.95);
+    backdrop-filter:blur(10px);
+    box-shadow:0 2px 10px rgba(0,0,0,0.08);
 }
 
-.brand {
-    font-size: 13px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    opacity: .6;
-    margin-bottom: 35px;
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 5%;
 }
 
-h1 {
-    font-family: Georgia, serif;
-    font-size: clamp(42px, 9vw, 68px);
-    font-weight: 400;
-    line-height: 1.05;
-    margin: 0 0 20px;
+.logo{
+    font-size:1.5rem;
+    font-weight:700;
+    color:#ff6b35;
 }
 
-.subtitle {
-    font-size: 20px;
-    color: #666;
-    line-height: 1.5;
-    margin-bottom: 30px;
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
 }
 
-.time {
-    font-size: 14px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 35px;
+nav a{
+    text-decoration:none;
+    color:#333;
+    font-weight:500;
 }
 
-.features {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-bottom: 35px;
+.btn{
+    display:inline-block;
+    background:#ff6b35;
+    color:white;
+    padding:14px 32px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
 }
 
-.feature {
-    background: #f2eee6;
-    border-radius: 15px;
-    padding: 16px 14px;
-    font-size: 14px;
+.btn:hover{
+    background:#e4572a;
+    transform:translateY(-2px);
 }
 
-.feature span {
-    display: block;
-    font-size: 23px;
-    margin-bottom: 7px;
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:
+    linear-gradient(rgba(0,0,0,0.45),
+    rgba(0,0,0,0.45)),
+    url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80');
+    background-size:cover;
+    background-position:center;
+    color:white;
+    padding:120px 20px;
 }
 
-.cta {
-    border: none;
-    width: 100%;
-    padding: 19px;
-    border-radius: 14px;
-    background: #252525;
-    color: white;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    cursor: pointer;
+.hero h1{
+    font-size:4rem;
+    margin-bottom:20px;
 }
 
-.cta:hover {
-    opacity: .9;
+.hero p{
+    max-width:700px;
+    margin:auto;
+    font-size:1.2rem;
+    margin-bottom:40px;
 }
 
-.chat {
-    display: none;
-    text-align: left;
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
 }
 
-.chat-header {
-    text-align: center;
-    margin-bottom: 25px;
+.btn-secondary{
+    background:transparent;
+    border:2px solid white;
 }
 
-.chat-header h2 {
-    font-family: Georgia, serif;
-    font-weight: 400;
-    font-size: 30px;
-    margin: 0 0 8px;
+.section{
+    padding:90px 0;
 }
 
-.chat-header p {
-    color: #777;
-    margin: 0;
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
 }
 
-.messages {
-    height: 360px;
-    overflow-y: auto;
-    padding: 10px 0;
+.section-title h2{
+    font-size:2.7rem;
+    margin-bottom:10px;
 }
 
-.message {
-    max-width: 85%;
-    padding: 13px 16px;
-    border-radius: 16px;
-    margin-bottom: 12px;
-    line-height: 1.45;
-    font-size: 15px;
+.section-title p{
+    color:#666;
 }
 
-.ai {
-    background: #f0ece4;
-    border-bottom-left-radius: 4px;
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+    gap:30px;
 }
 
-.user {
-    background: #252525;
-    color: white;
-    margin-left: auto;
-    border-bottom-right-radius: 4px;
+.card{
+    background:white;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    transition:0.3s;
 }
 
-.options {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 10px;
+.card:hover{
+    transform:translateY(-10px);
 }
 
-.option {
-    border: 1px solid #ccc;
-    background: white;
-    padding: 10px 14px;
-    border-radius: 20px;
-    cursor: pointer;
+.card img{
+    width:100%;
+    height:230px;
+    object-fit:cover;
 }
 
-.option:hover {
-    background: #f2eee6;
+.card-content{
+    padding:25px;
 }
 
-.input-area {
-    display: flex;
-    gap: 8px;
-    margin-top: 15px;
+.card h3{
+    margin-bottom:10px;
 }
 
-.input-area input {
-    flex: 1;
-    padding: 14px;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    font-size: 15px;
+.card p{
+    color:#666;
 }
 
-.input-area button {
-    border: none;
-    border-radius: 12px;
-    padding: 0 18px;
-    background: #252525;
-    color: white;
-    cursor: pointer;
+.how-it-works{
+    background:#f7f8fa;
 }
 
-.small {
-    margin-top: 20px;
-    text-align: center;
-    font-size: 12px;
-    color: #999;
+.steps{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:40px;
 }
 
-@media(max-width:500px) {
+.step{
+    text-align:center;
+}
 
-    .card {
-        padding: 35px 22px;
+.step-number{
+    width:70px;
+    height:70px;
+    margin:auto;
+    background:#ff6b35;
+    color:white;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.5rem;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+    text-align:center;
+}
+
+.feature{
+    padding:25px;
+    background:white;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    border-radius:12px;
+}
+
+.occasions{
+    background:#fafafa;
+}
+
+.occasion-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+}
+
+.occasion{
+    background:white;
+    padding:20px;
+    text-align:center;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.06);
+}
+
+.testimonial{
+    text-align:center;
+    max-width:800px;
+    margin:auto;
+}
+
+.testimonial p{
+    font-size:1.2rem;
+    font-style:italic;
+    margin-top:20px;
+}
+
+.cta{
+    background:linear-gradient(135deg,#ff6b35,#ff8f5c);
+    color:white;
+    text-align:center;
+}
+
+.cta h2{
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+.cta p{
+    max-width:700px;
+    margin:0 auto 30px;
+}
+
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:40px 20px;
+}
+
+footer p{
+    color:#bbb;
+}
+
+@media(max-width:768px){
+
+    nav ul{
+        display:none;
     }
 
-    .features {
-        flex-direction: column;
+    .hero h1{
+        font-size:2.7rem;
     }
 
-    h1 {
-        font-size: 44px;
+    .section-title h2{
+        font-size:2rem;
+    }
+
+    .cta h2{
+        font-size:2rem;
     }
 }
 </style>
 </head>
-
 <body>
 
-<div class="hero">
-
-<div class="card">
-
-<!-- LANDING -->
-
-<div id="landing">
-
-<div class="brand">
-SOFIA AFTER WORK
-</div>
-
-<h1>
-Don't spend<br>
-your business trip alone.
-</h1>
-
-<div class="subtitle">
-Meet interesting people, slow down and enjoy
-a relaxed evening in Sofia.
-</div>
-
-<div class="time">
-Every evening · 19:30–21:00
-</div>
-
-<div class="features">
-
-<div class="feature">
-<span>☕</span>
-Tea
-</div>
-
-<div class="feature">
-<span>💬</span>
-Small talk
-</div>
-
-<div class="feature">
-<span>🌍</span>
-Meet people
-</div>
-
-</div>
-
-<button class="cta" onclick="startChat()">
-JOIN TONIGHT →
-</button>
-
-<div class="small">
-Small group · Limited places
-</div>
-
-</div>
-
-
-<!-- CHAT -->
-
-<div id="chat" class="chat">
-
-<div class="chat-header">
-
-<h2>Sofia After Work AI</h2>
-
-<p>Your evening concierge</p>
-
-</div>
-
-<div id="messages" class="messages"></div>
-
-<div class="input-area">
-
-<input
-id="input"
-type="text"
-placeholder="Type your answer..."
-onkeydown="handleEnter(event)"
->
-
-<button onclick="sendMessage()">
-Send
-</button>
-
-</div>
-
-<div class="small">
-19:30–21:00 · OurSpace · Sofia
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<script>
-
-let step = 0;
-
-let booking = {};
-
-function startChat() {
-
-    document.getElementById("landing").style.display = "none";
-    document.getElementById("chat").style.display = "block";
-
-    addAI(
-        "Hi 👋 I'm your Sofia After Work concierge.<br><br>" +
-        "Tonight is a relaxed 19:30–21:00 gathering at OurSpace " +
-        "for business travellers who want to meet people, have tea " +
-        "and unwind.<br><br>" +
-        "What's your first name?"
-    );
-
-    step = 1;
-}
-
-
-function addAI(text) {
-
-    const messages = document.getElementById("messages");
-
-    const div = document.createElement("div");
-
-    div.className = "message ai";
-
-    div.innerHTML = text;
-
-    messages.appendChild(div);
-
-    messages.scrollTop = messages.scrollHeight;
-}
-
-
-function addUser(text) {
-
-    const messages = document.getElementById("messages");
-
-    const div = document.createElement("div");
-
-    div.className = "message user";
-
-    div.textContent = text;
-
-    messages.appendChild(div);
-
-    messages.scrollTop = messages.scrollHeight;
-}
-
-
-function sendMessage() {
-
-    const input = document.getElementById("input");
-
-    const text = input.value.trim();
-
-    if (!text) return;
-
-    addUser(text);
-
-    input.value = "";
-
-    setTimeout(() => {
-
-        processAnswer(text);
-
-    }, 500);
-}
-
-
-function handleEnter(event) {
-
-    if (event.key === "Enter") {
-
-        sendMessage();
-
-    }
-}
-
-
-function processAnswer(text) {
-
-    if (step === 1) {
-
-        booking.name = text;
-
-        addAI(
-            "Nice to meet you, " + text + " 👋<br><br>" +
-            "Are you travelling alone tonight?"
-        );
-
-        step = 2;
-
-        return;
-    }
-
-
-    if (step === 2) {
-
-        booking.alone = text;
-
-        addAI(
-            "Perfect.<br><br>" +
-            "What would you like from tonight?"
-        );
-
-        addOptions([
-            "Relax & tea",
-            "Meet people",
-            "Small talk",
-            "Professional networking",
-            "Surprise me"
-        ]);
-
-        step = 3;
-
-        return;
-    }
-
-
-    if (step === 3) {
-
-        booking.preference = text;
-
-        addAI(
-            "Lovely choice.<br><br>" +
-            "Which hotel are you staying at?"
-        );
-
-        step = 4;
-
-        return;
-    }
-
-
-    if (step === 4) {
-
-        booking.hotel = text;
-
-        addAI(
-            "Almost done.<br><br>" +
-            "How many people should I reserve a place for?"
-        );
-
-        step = 5;
-
-        return;
-    }
-
-
-    if (step === 5) {
-
-        booking.people = text;
-
-        addAI(
-            "<strong>You're on the guest list request! 🎉</strong><br><br>" +
-
-            "SOFIA AFTER WORK<br>" +
-            "Tonight · 19:30–21:00<br>" +
-            "OurSpace · Sofia<br><br>" +
-
-            "☕ Tea<br>" +
-            "💬 Small talk<br>" +
-            "🌍 Meet people<br><br>" +
-
-            "We'll confirm your place shortly."
-        );
-
-        step = 6;
-
-        console.log("BOOKING:", booking);
-
-    }
-
-}
-
-
-function addOptions(options) {
-
-    const messages = document.getElementById("messages");
-
-    const container = document.createElement("div");
-
-    container.className = "options";
-
-    options.forEach(option => {
-
-        const button = document.createElement("button");
-
-        button.className = "option";
-
-        button.textContent = option;
-
-        button.onclick = function() {
-
-            addUser(option);
-
-            processAnswer(option);
-
-            container.remove();
-
-        };
-
-        container.appendChild(button);
-
-    });
-
-    messages.appendChild(container);
-
-}
-
-</script>
-
-</body>
-</html>
+<header>
+    <nav>
+        <div class="logo">Experience Box Bulgaria</div>
+
+        <ul>
+            <li><a href="#experienceses</a></li>
+            <li><a href="#how">How It/li>
+            <li>#corporateCorporate</a></li>
+            <li><a href="ontact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <div>
+        <h1>Give Memories, Not Things</h1>
+
+        <p>
+            Discover handpicked experiences across Bulgaria.
+            Adventure, wellness, gourmet dining, romantic escapes,
+            and unforgettable moments delivered in one beautiful gift box.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#esExplore Gift Boxes</a>
+            #howHow It Works</a>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="experiences">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Find the Perfect Experience</h2>
+            <p>Choose from hundreds of unforgettable moments.</p>
+        </div>
+
+        <div class="grid">
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=80"      <div class="card-content">
+                    <h3>Adventure Box</h3>
+                    <p>Skydiving, rafting, off-road driving, paragliding and adrenaline-packed experiences.</p>
+                </div>
+            </div>
+
+            <div class="card">
+               
