@@ -1,1 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Sofia After Work</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                 Roboto, Arial, sans-serif;
+    background: #f5f1e9;
+    color: #252525;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.card {
+    width: 100%;
+    max-width: 620px;
+    background: #fffdf9;
+    border-radius: 28px;
+    padding: 50px 35px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,.08);
+}
+
+.brand {
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    opacity: .6;
+    margin-bottom: 35px;
+}
+
+h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(42px, 9vw, 68px);
+    font-weight: 400;
+    line-height: 1.05;
+    margin: 0 0 20px;
+}
+
+.subtitle {
+    font-size: 20px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.time {
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 35px;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 35px;
+}
+
+.feature {
+    background: #f2eee6;
+    border-radius: 15px;
+    padding: 16px 14px;
+    font-size: 14px;
+}
+
+.feature span {
+    display: block;
+    font-size: 23px;
+    margin-bottom: 7px;
+}
+
+.cta {
+    border: none;
+    width: 100%;
+    padding: 19px;
+    border-radius: 14px;
+    background: #252525;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.cta:hover {
+    opacity: .9;
+}
+
+.chat {
+    display: none;
+    text-align: left;
+}
+
+.chat-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.chat-header h2 {
+    font-family: Georgia, serif;
+    font-weight: 400;
+    font-size: 30px;
+    margin: 0 0 8px;
+}
+
+.chat-header p {
+    color: #777;
+    margin: 0;
+}
+
+.messages {
+    height: 360px;
+    overflow-y: auto;
+    padding: 10px 0;
+}
+
+.message {
+    max-width: 85%;
+    padding: 13px 16px;
+    border-radius: 16px;
+    margin-bottom: 12px;
+    line-height: 1.45;
+    font-size: 15px;
+}
+
+.ai {
+    background: #f0ece4;
+    border-bottom-left-radius: 4px;
+}
+
+.user {
+    background: #252525;
+    color: white;
+    margin-left: auto;
+    border-bottom-right-radius: 4px;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.option {
+    border: 1px solid #ccc;
+    background: white;
+    padding: 10px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.option:hover {
+    background: #f2eee6;
+}
+
+.input-area {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.input-area input {
+    flex: 1;
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    font-size: 15px;
+}
+
+.input-area button {
+    border: none;
+    border-radius: 12px;
+    padding: 0 18px;
+    background: #252525;
+    color: white;
+    cursor: pointer;
+}
+
+.small {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #999;
+}
+
+@media(max-width:500px) {
+
+    .card {
+        padding: 35px 22px;
+    }
+
+    .features {
+        flex-direction: column;
+    }
+
+    h1 {
+        font-size: 44px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+
+<div class="card">
+
+<!-- LANDING -->
+
+<div id="landing">
+
+<div class="brand">
+SOFIA AFTER WORK
+</div>
+
+<h1>
+Don't spend<br>
+your business trip alone.
+</h1>
+
+<div class="subtitle">
+Meet interesting people, slow down and enjoy
+a relaxed evening in Sofia.
+</div>
+
+<div class="time">
+Every evening · 19:30–21:00
+</div>
+
+<div class="features">
+
+<div class="feature">
+<span>☕</span>
+Tea
+</div>
+
+<div class="feature">
+<span>💬</span>
+Small talk
+</div>
+
+<div class="feature">
+<span>🌍</span>
+Meet people
+</div>
+
+</div>
+
+<button class="cta" onclick="startChat()">
+JOIN TONIGHT →
+</button>
+
+<div class="small">
+Small group · Limited places
+</div>
+
+</div>
+
+
+<!-- CHAT -->
+
+<div id="chat" class="chat">
+
+<div class="chat-header">
+
+<h2>Sofia After Work AI</h2>
+
+<p>Your evening concierge</p>
+
+</div>
+
+<div id="messages" class="messages"></div>
+
+<div class="input-area">
+
+<input
+id="input"
+type="text"
+placeholder="Type your answer..."
+onkeydown="handleEnter(event)"
+>
+
+<button onclick="sendMessage()">
+Send
+</button>
+
+</div>
+
+<div class="small">
+19:30–21:00 · OurSpace · Sofia
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+let step = 0;
+
+let booking = {};
+
+function startChat() {
+
+    document.getElementById("landing").style.display = "none";
+    document.getElementById("chat").style.display = "block";
+
+    addAI(
+        "Hi 👋 I'm your Sofia After Work concierge.<br><br>" +
+        "Tonight is a relaxed 19:30–21:00 gathering at OurSpace " +
+        "for business travellers who want to meet people, have tea " +
+        "and unwind.<br><br>" +
+        "What's your first name?"
+    );
+
+    step = 1;
+}
+
+
+function addAI(text) {
+
+    const messages = document.getElementById("messages");
+
+    const div = document.createElement("div");
+
+    div.className = "message ai";
+
+    div.innerHTML = text;
+
+    messages.appendChild(div);
+
+    messages.scrollTop = messages.scrollHeight;
+}
+
+
+function addUser(text) {
+
+    const messages = document.getElementById("messages");
+
+    const div = document.createElement("div");
+
+    div.className = "message user";
+
+    div.textContent = text;
+
+    messages.appendChild(div);
+
+    messages.scrollTop = messages.scrollHeight;
+}
+
+
+function sendMessage() {
+
+    const input = document.getElementById("input");
+
+    const text = input.value.trim();
+
+    if (!text) return;
+
+    addUser(text);
+
+    input.value = "";
+
+    setTimeout(() => {
+
+        processAnswer(text);
+
+    }, 500);
+}
+
+
+function handleEnter(event) {
+
+    if (event.key === "Enter") {
+
+        sendMessage();
+
+    }
+}
+
+
+function processAnswer(text) {
+
+    if (step === 1) {
+
+        booking.name = text;
+
+        addAI(
+            "Nice to meet you, " + text + " 👋<br><br>" +
+            "Are you travelling alone tonight?"
+        );
+
+        step = 2;
+
+        return;
+    }
+
+
+    if (step === 2) {
+
+        booking.alone = text;
+
+        addAI(
+            "Perfect.<br><br>" +
+            "What would you like from tonight?"
+        );
+
+        addOptions([
+            "Relax & tea",
+            "Meet people",
+            "Small talk",
+            "Professional networking",
+            "Surprise me"
+        ]);
+
+        step = 3;
+
+        return;
+    }
+
+
+    if (step === 3) {
+
+        booking.preference = text;
+
+        addAI(
+            "Lovely choice.<br><br>" +
+            "Which hotel are you staying at?"
+        );
+
+        step = 4;
+
+        return;
+    }
+
+
+    if (step === 4) {
+
+        booking.hotel = text;
+
+        addAI(
+            "Almost done.<br><br>" +
+            "How many people should I reserve a place for?"
+        );
+
+        step = 5;
+
+        return;
+    }
+
+
+    if (step === 5) {
+
+        booking.people = text;
+
+        addAI(
+            "<strong>You're on the guest list request! 🎉</strong><br><br>" +
+
+            "SOFIA AFTER WORK<br>" +
+            "Tonight · 19:30–21:00<br>" +
+            "OurSpace · Sofia<br><br>" +
+
+            "☕ Tea<br>" +
+            "💬 Small talk<br>" +
+            "🌍 Meet people<br><br>" +
+
+            "We'll confirm your place shortly."
+        );
+
+        step = 6;
+
+        console.log("BOOKING:", booking);
+
+    }
+
+}
+
+
+function addOptions(options) {
+
+    const messages = document.getElementById("messages");
+
+    const container = document.createElement("div");
+
+    container.className = "options";
+
+    options.forEach(option => {
+
+        const button = document.createElement("button");
+
+        button.className = "option";
+
+        button.textContent = option;
+
+        button.onclick = function() {
+
+            addUser(option);
+
+            processAnswer(option);
+
+            container.remove();
+
+        };
+
+        container.appendChild(button);
+
+    });
+
+    messages.appendChild(container);
+
+}
+
+</script>
+
+</body>
+</html>
