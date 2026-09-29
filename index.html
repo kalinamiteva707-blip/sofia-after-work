@@ -1,345 +1,140 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Experience Box Bulgaria | Give Memories, Not Things</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;display=swap
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family:'Poppins',sans-serif;
-    color:#333;
-    line-height:1.6;
-}
-
-.container{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
-}
-
-header{
-    position:fixed;
-    width:100%;
-    top:0;
-    z-index:1000;
-    background:rgba(255,255,255,0.95);
-    backdrop-filter:blur(10px);
-    box-shadow:0 2px 10px rgba(0,0,0,0.08);
-}
-
-nav{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 5%;
-}
-
-.logo{
-    font-size:1.5rem;
-    font-weight:700;
-    color:#ff6b35;
-}
-
-nav ul{
-    display:flex;
-    list-style:none;
-    gap:30px;
-}
-
-nav a{
-    text-decoration:none;
-    color:#333;
-    font-weight:500;
-}
-
-.btn{
-    display:inline-block;
-    background:#ff6b35;
-    color:white;
-    padding:14px 32px;
-    border-radius:30px;
-    text-decoration:none;
-    font-weight:600;
-    transition:0.3s;
-}
-
-.btn:hover{
-    background:#e4572a;
-    transform:translateY(-2px);
-}
-
-.hero{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    background:
-    linear-gradient(rgba(0,0,0,0.45),
-    rgba(0,0,0,0.45)),
-    url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80');
-    background-size:cover;
-    background-position:center;
-    color:white;
-    padding:120px 20px;
-}
-
-.hero h1{
-    font-size:4rem;
-    margin-bottom:20px;
-}
-
-.hero p{
-    max-width:700px;
-    margin:auto;
-    font-size:1.2rem;
-    margin-bottom:40px;
-}
-
-.hero-buttons{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
-}
-
-.btn-secondary{
-    background:transparent;
-    border:2px solid white;
-}
-
-.section{
-    padding:90px 0;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:60px;
-}
-
-.section-title h2{
-    font-size:2.7rem;
-    margin-bottom:10px;
-}
-
-.section-title p{
-    color:#666;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
-    gap:30px;
-}
-
-.card{
-    background:white;
-    border-radius:16px;
-    overflow:hidden;
-    box-shadow:0 10px 30px rgba(0,0,0,0.08);
-    transition:0.3s;
-}
-
-.card:hover{
-    transform:translateY(-10px);
-}
-
-.card img{
-    width:100%;
-    height:230px;
-    object-fit:cover;
-}
-
-.card-content{
-    padding:25px;
-}
-
-.card h3{
-    margin-bottom:10px;
-}
-
-.card p{
-    color:#666;
-}
-
-.how-it-works{
-    background:#f7f8fa;
-}
-
-.steps{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:40px;
-}
-
-.step{
-    text-align:center;
-}
-
-.step-number{
-    width:70px;
-    height:70px;
-    margin:auto;
-    background:#ff6b35;
-    color:white;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:1.5rem;
-    font-weight:700;
-    margin-bottom:20px;
-}
-
-.features{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:25px;
-    text-align:center;
-}
-
-.feature{
-    padding:25px;
-    background:white;
-    box-shadow:0 5px 20px rgba(0,0,0,0.08);
-    border-radius:12px;
-}
-
-.occasions{
-    background:#fafafa;
-}
-
-.occasion-list{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:20px;
-}
-
-.occasion{
-    background:white;
-    padding:20px;
-    text-align:center;
-    border-radius:12px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.06);
-}
-
-.testimonial{
-    text-align:center;
-    max-width:800px;
-    margin:auto;
-}
-
-.testimonial p{
-    font-size:1.2rem;
-    font-style:italic;
-    margin-top:20px;
-}
-
-.cta{
-    background:linear-gradient(135deg,#ff6b35,#ff8f5c);
-    color:white;
-    text-align:center;
-}
-
-.cta h2{
-    font-size:3rem;
-    margin-bottom:20px;
-}
-
-.cta p{
-    max-width:700px;
-    margin:0 auto 30px;
-}
-
-footer{
-    background:#111;
-    color:white;
-    text-align:center;
-    padding:40px 20px;
-}
-
-footer p{
-    color:#bbb;
-}
-
-@media(max-width:768px){
-
-    nav ul{
-        display:none;
-    }
-
-    .hero h1{
-        font-size:2.7rem;
-    }
-
-    .section-title h2{
-        font-size:2rem;
-    }
-
-    .cta h2{
-        font-size:2rem;
-    }
-}
-</style>
-</head>
-<body>
-
-<header>
-    <nav>
-        <div class="logo">Experience Box Bulgaria</div>
-
-        <ul>
-            <li><a href="#experienceses</a></li>
-            <li><a href="#how">How It/li>
-            <li>#corporateCorporate</a></li>
-            <li><a href="ontact</a></li>
-        </ul>
-    </nav>
-</header>
-
 <section class="hero">
-    <div>
-        <h1>Give Memories, Not Things</h1>
 
-        <p>
-            Discover handpicked experiences across Bulgaria.
-            Adventure, wellness, gourmet dining, romantic escapes,
-            and unforgettable moments delivered in one beautiful gift box.
-        </p>
+    <div class="hero-content">
 
-        <div class="hero-buttons">
-            <a href="#esExplore Gift Boxes</a>
-            #howHow It Works</a>
+        <div class="hero-text">
+            <span class="badge">🎁 #1 Experience Gift Box in Bulgaria</span>
+
+            <h1>
+                The Gift They'll
+                <span>Remember Forever</span>
+            </h1>
+
+            <p>
+                Give access to over 500 unforgettable experiences across Bulgaria.
+                From luxury spa retreats and gourmet dining to thrilling adventures
+                and romantic escapes.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#boxes" class="btn">Shop         <a href="#how" class="btn        </div>
+
+            <div class="trust-bar">
+                ⭐ 4.9/5 Customer Rating
+                • 500+ Experiences
+                • 24-Month Validity
+            </div>
+
         </div>
+
+        <div class="hero-image">
+
+            <div class="product-showcase">
+
+                <div class="gift-box premium">
+                    <div class="box-cover">
+                        <h3>PREMIUM</h3>
+                        <p>Luxury Experiences</p>
+                    </div>
+                </div>
+
+                <div class="gift-box romance">
+                    <div class="box-cover">
+                        <h3>ROMANCE</h3>
+                        <p>For Couples</p>
+                    </div>
+                </div>
+
+                <div class="gift-box adventure">
+                    <div class="box-cover">
+                        <h3>ADVENTURE</h3>
+                        <p>Thrilling Activities</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
+
 </section>
 
-<section class="section" id="experiences">
+<section id="boxes" class="products">
 
     <div class="container">
 
-        <div class="section-title">
-            <h2>Find the Perfect Experience</h2>
-            <p>Choose from hundreds of unforgettable moments.</p>
-        </div>
+        <h2>Choose Your Experience Box</h2>
 
-        <div class="grid">
+        <div class="product-grid">
 
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=80"      <div class="card-content">
+            <div class="product-card">
+
+                <div class="product-image premium-bg">
+                    <span class="price">€59</span>
+                </div>
+
+                <div class="product-content">
                     <h3>Adventure Box</h3>
-                    <p>Skydiving, rafting, off-road driving, paragliding and adrenaline-packed experiences.</p>
+
+                    <p>
+                        Choose from 80+ adrenaline experiences
+                        including paragliding, rafting and ATV rides.
+                    </p>
+
+                    <ul>
+                        <li>80+ Experiences</li>
+                        <li>Valid 24 Months</li>
+                        <li>Free Delivery</li>
+                    </ul>
+
+                    <a href="#" class="btn">      </div>
+            </div>
+
+            <div class="product-card featured">
+
+                <div class="best-seller">
+                    BEST SELLER
+                </div>
+
+                <div class="product-image romance-bg">
+                    <span class="price">€89</span>
+                </div>
+
+                <div class="product-content">
+                    <h3>Romance Box</h3>
+
+                    <p>
+                        Romantic escapes, fine dining and spa experiences
+                        designed for unforgettable moments together.
+                    </p>
+
+                    <ul>
+                        <li>120+ Experiences</li>
+                        <li>Luxury Hotels</li>
+                        <li>Gift Packaging Included</li>
+                    </ul>
+
+                    #Buy Now</a>
+
                 </div>
             </div>
 
-            <div class="card">
-               
+            <div class="product-card">
+
+                <div class="product-image wellness-bg">
+                    <span class="price">€69</span>
+                </div>
+
+                <div class="product-content">
+                    <h3>Wellness Box</h3>
+
+                    <p>
+                        Spa days, massages and wellness retreats
+                        at Bulgaria's top resorts.
+                    </p>
+
+                    <ul>
+                        <li>100+ Experiences</li>
+                        <li>Premium Partners</li>
+                        <li>Flexible 
